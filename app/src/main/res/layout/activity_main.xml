@@ -43,11 +43,14 @@
                 android:layout_height="match_parent"
                 android:layout_weight="0.5" />
 
-            <ImageView
+            <TextView
                 android:id="@+id/statusElementImage"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="0.5" />
+                android:layout_weight="0.5"
+                android:background="#269"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginVertical="5dp"/>
 
 
         </LinearLayout>
