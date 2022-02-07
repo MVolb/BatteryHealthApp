@@ -8,13 +8,13 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.BatteryManager;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    Context context;
     TextView batteryType;
-    TextView batteryHealth;
+    View batteryHealth;
     TextView batteryLevel;
     private MyBroadCastReceiver receiver;
 
@@ -23,11 +23,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         receiver = new MyBroadCastReceiver();
         setContentView(R.layout.activity_main);
+
         // Initialize a new IntentFilter instance
         IntentFilter iFilter = new IntentFilter(Intent.ACTION_BATTERY_CHANGED);
 
         // Register the broadcast receiver
         registerReceiver(receiver,iFilter);
+
+        batteryHealth = findViewById(R.id.statusTable);
     }
 
 }

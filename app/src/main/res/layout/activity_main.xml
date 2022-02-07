@@ -11,13 +11,12 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="0.5"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintTop_toTopOf="parent">
     </ImageView>
 
 
     <LinearLayout
-        android:id="@+id/linearLayout"
+        android:id="@+id/statusTable"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="0.5"
@@ -26,33 +25,5 @@
         tools:layout_editor_absoluteX="1dp"
         tools:layout_editor_absoluteY="245dp">
 
-
-        <LinearLayout
-            android:id="@+id/statusElement"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="1dp">
-
-            <TextView
-                android:id="@+id/statusElementName"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="0.5" />
-
-            <TextView
-                android:id="@+id/statusElementImage"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="0.5"
-                android:background="#269"
-                android:layout_marginHorizontal="10dp"
-                android:layout_marginVertical="5dp"/>
-
-
-        </LinearLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
