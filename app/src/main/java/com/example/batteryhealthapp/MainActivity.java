@@ -29,27 +29,8 @@ public class MainActivity extends AppCompatActivity {
             // get health condition of battery
             int health = intent.getIntExtra(BatteryManager.EXTRA_HEALTH,0);
 
-            if (health == BatteryManager.BATTERY_HEALTH_COLD){
-                batteryHealth = STATUS.RED;
-            }
-            if (health == BatteryManager.BATTERY_HEALTH_DEAD) {
-                batteryHealth = STATUS.RED;
-            }
-            if (health == BatteryManager.BATTERY_HEALTH_GOOD) {
-                batteryHealth = STATUS.GREEN;
-            }
-            if (health == BatteryManager.BATTERY_HEALTH_OVERHEAT) {
-                batteryHealth = STATUS.RED;
-            }
-            if (health == BatteryManager.BATTERY_HEALTH_OVER_VOLTAGE) {
-                batteryHealth = STATUS.RED;
-            }
-            if (health == BatteryManager.BATTERY_HEALTH_UNKNOWN) {
-                batteryHealth = STATUS.UNKNOWN;
-            }
-            if (health == BatteryManager.BATTERY_HEALTH_UNSPECIFIED_FAILURE) {
-                batteryHealth = STATUS.UNKNOWN;
-            }
+            batteryHealth = StatusMapper.getBatteryStatus(health);
+
 
         }
     };
