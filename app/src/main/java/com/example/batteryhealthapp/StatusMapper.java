@@ -5,7 +5,8 @@ import android.os.BatteryManager;
 public class StatusMapper {
 
     public static STATUS getBatteryStatus(int health) {
-        STATUS batteryHealth = STATUS.GREEN;
+        STATUS batteryHealth = STATUS.YELLOW;
+
         if (health == BatteryManager.BATTERY_HEALTH_COLD) {
             batteryHealth = STATUS.RED;
         }
@@ -30,5 +31,6 @@ public class StatusMapper {
 
         return batteryHealth;
     }
+
 
 }

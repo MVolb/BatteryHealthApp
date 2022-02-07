@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.BatteryManager;
 import android.os.Bundle;
 import android.widget.TextView;
@@ -15,30 +16,18 @@ public class MainActivity extends AppCompatActivity {
     TextView batteryType;
     TextView batteryHealth;
     TextView batteryLevel;
-
-    private BroadcastReceiver receiver = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-
-            STATUS batteryHealth;
-            String loadingLevel = "";
-
-            // get loading level of battery
-            int level = intent.getIntExtra(BatteryManager.EXTRA_LEVEL,0);
-
-            // get health condition of battery
-            int health = intent.getIntExtra(BatteryManager.EXTRA_HEALTH,0);
-
-            batteryHealth = StatusMapper.getBatteryStatus(health);
-
-
-        }
-    };
+    private MyBroadCastReceiver receiver;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        receiver = new MyBroadCastReceiver();
         setContentView(R.layout.activity_main);
+        // Initialize a new IntentFilter instance
+        IntentFilter iFilter = new IntentFilter(Intent.ACTION_BATTERY_CHANGED);
+
+        // Register the broadcast receiver
+        registerReceiver(receiver,iFilter);
     }
 
 }
